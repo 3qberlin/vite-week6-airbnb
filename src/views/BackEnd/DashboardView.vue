@@ -7,3 +7,28 @@
   </nav>
   <RouterView />
 </template>
+
+<script>
+import axios from 'axios';
+
+const { VITE_API_URL } = import.meta.env;
+
+export default {
+  methods: {
+    checkAdmin() {
+      const url = `${VITE_API_URL}/api/user/check`;
+      axios.post(url)
+        .then(() => {
+        })
+        .catch(() => {
+          this.$router.push('/login');
+        });
+    },
+  },
+  mounted() {
+    const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
+    axios.defaults.headers.common.Authorization = token;
+    this.checkAdmin();
+  },
+};
+</script>

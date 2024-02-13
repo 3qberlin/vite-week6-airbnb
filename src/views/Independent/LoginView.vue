@@ -41,7 +41,7 @@
 <script>
 import axios from 'axios';
 
-const { VITE_APP_API_URL } = import.meta.env;
+const { VITE_API_URL } = import.meta.env;
 
 export default {
   data() {
@@ -54,7 +54,7 @@ export default {
   },
   methods: {
     login() {
-      axios.post(VITE_APP_API_URL, this.user)
+      axios.post(`${VITE_API_URL}/admin/signin`, this.user)
         .then((response) => {
           const { token, expired } = response.data;
           document.cookie = `hexToken=${token};expires=${new Date(
