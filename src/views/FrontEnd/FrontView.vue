@@ -5,7 +5,7 @@
     <RouterLink to="/about">About</RouterLink> |
     <RouterLink to="/products">Products</RouterLink> |
     <RouterLink to="/carts">Carts</RouterLink> |
-    <RouterLink to="/login">Login</RouterLink> |
+    <RouterLink to="login">Login</RouterLink> |
     <RouterLink to="/admin">Dashboard</RouterLink>
   </nav>
   <RouterView />
